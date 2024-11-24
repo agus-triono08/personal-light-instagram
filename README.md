@@ -51,7 +51,23 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Jalankan Migrasi Database
+### 5. Generate Kunci Enkripsi
+
+Menambahkan kunci di file ```env``` dengan nilai pada ```APP_KEY```.
+
+```bash
+php artisan key:generate
+```
+
+### 6. Jalankan Symlink
+
+Ini akan membuat symlink baru di ```public/storage``` yang akan menunjuk ke ```storage/app/public```.
+
+```bash
+php artisan storage:link
+```
+
+### 7. Jalankan Migrasi Database
 
 Setelah mengonfigurasi database, jalankan migrasi untuk membuat struktur tabel di database Anda:
 
@@ -65,7 +81,7 @@ Jika Anda ingin mengisi database dengan data dummy, Anda dapat menjalankan perin
 php artisan db:seed
 ```
 
-### 6. Jalankan Aplikasi Laravel
+### 8. Jalankan Aplikasi Laravel
 
 Setelah langkah-langkah di atas selesai, Anda dapat menjalankan aplikasi menggunakan perintah berikut:
 
@@ -74,7 +90,7 @@ php artisan serve
 ```
 Aplikasi akan berjalan di http://localhost:8000. Anda dapat mengaksesnya melalui browser.
 
-### 7. Menjalankan Uji Coba
+### 9. Menjalankan Uji Coba
 Cobalah untuk membuat beberapa akun pengguna, upload beberapa foto/video, beri like dan komentar pada post, dan lihat bagaimana aplikasi berfungsi.
 
 ## Teknologi yang Digunakan
