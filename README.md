@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Personal Light Instagram
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Personal Light Instagram** adalah aplikasi berbasis Laravel yang meniru beberapa fitur dari Instagram, seperti feed berbasis foto/video, like, dan komentar. Aplikasi ini memungkinkan pengguna untuk mengupload foto/video, memberikan like pada post, dan menambahkan komentar.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Registrasi & Login**: Pengguna dapat mendaftar menggunakan username, email, dan password.
+- **Feed**: Pengguna dapat mengupload gambar atau video dengan caption.
+- **Like & Comment**: Pengguna dapat memberikan like dan komentar pada setiap post.
+- **Profile**: Pengguna dapat mengupdate profil, termasuk mengubah foto profil dan bio.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Cara Menjalankan Aplikasi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini secara lokal.
 
-## Learning Laravel
+### 1. Clone Repository
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Clone repository ini ke komputer Anda dengan perintah berikut:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+git clone https://github.com/agus-triono08/personal-light-instagram.git
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Install Dependencies
 
-## Laravel Sponsors
+Masuk ke direktori proyek dan install semua dependensi yang diperlukan menggunakan Composer:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+cd personal-light-instagram
+composer install
+```
 
-### Premium Partners
+### 3. Salin File ```.env```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Buat file ```.env``` baru dari file ```.env.example``` yang ada di direktori root proyek Anda:
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Konfigurasi Database
 
-## Code of Conduct
+Setelah itu, buka file ```.env``` dan konfigurasi pengaturan database sesuai dengan database yang Anda gunakan. Contoh pengaturan untuk MySQL:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=personallightinstagram
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Security Vulnerabilities
+### 5. Jalankan Migrasi Database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Setelah mengonfigurasi database, jalankan migrasi untuk membuat struktur tabel di database Anda:
+
+```bash
+php artisan migrate
+```
+
+Jika Anda ingin mengisi database dengan data dummy, Anda dapat menjalankan perintah berikut untuk menjalankan seeder:
+
+```bash
+php artisan db:seed
+```
+
+### 6. Jalankan Aplikasi Laravel
+
+Setelah langkah-langkah di atas selesai, Anda dapat menjalankan aplikasi menggunakan perintah berikut:
+
+```bash
+php artisan serve
+```
+Aplikasi akan berjalan di http://localhost:8000. Anda dapat mengaksesnya melalui browser.
+
+### 7. Menjalankan Uji Coba
+Cobalah untuk membuat beberapa akun pengguna, upload beberapa foto/video, beri like dan komentar pada post, dan lihat bagaimana aplikasi berfungsi.
+
+## Teknologi yang Digunakan
+
+- **Laravel 11**: Framework PHP yang digunakan untuk membangun aplikasi ini.
+- **MySQL**: Sistem manajemen database relasional yang digunakan untuk menyimpan data.
+- **HTML, CSS, JavaScript**: Untuk membangun antarmuka pengguna (frontend).
+- **Composer**: Manajer ketergantungan PHP untuk mengelola paket-paket yang digunakan dalam proyek.
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Kontak
+Jika Anda memiliki pertanyaan atau masalah terkait aplikasi ini, silakan hubungi saya melalui [GitHub Issues](https://github.com/agus-triono08/personal-light-instagram/issues).
